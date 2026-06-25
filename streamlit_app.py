@@ -26,6 +26,17 @@ import pandas as pd
 import streamlit as st
 
 # ---------------------------------------------------------------------------
+# Auto-download YOLO weights if not present (for Streamlit Cloud)
+# ---------------------------------------------------------------------------
+for model in ["yolov8n.pt", "yolov8m.pt"]:
+    if not (ROOT / model).exists():
+        try:
+            from ultralytics import YOLO
+            YOLO(model)
+        except Exception as e:
+            print(f"Failed to download {model}: {e}")
+
+# ---------------------------------------------------------------------------
 # Page config — must be first Streamlit call
 # ---------------------------------------------------------------------------
 st.set_page_config(
