@@ -1,0 +1,37 @@
+extraction:
+  model: yolov8m.pt
+  tracker: botsort.yaml
+  confidence: 0.30
+  iou: 0.50
+  image_size: 960
+  vehicle_classes: [car, motorcycle, bus, truck, bicycle]
+
+cleaning:
+  minimum_confidence: 0.35
+  minimum_track_frames: 5
+  minimum_displacement_px: 12.0
+
+counting:
+  line_axis: y
+  line_position_ratio: 0.55
+  hysteresis_px: 8.0
+  direction: both
+  anchor: bottom_center
+  maximum_frame_gap: 5
+  maximum_crossing_distance_ratio: 0.35
+  roi_x_min_ratio: 0.0
+  roi_x_max_ratio: 1.0
+  roi_y_min_ratio: 0.0
+  roi_y_max_ratio: 1.0
+
+classification:
+  angle_deviation_threshold_deg: 30.0
+  zone_margin_ratio: 0.15
+  rule_minimum_tracks: 5
+  rule_intersection_entropy: 1.15
+  rule_intersection_deviation: 0.30
+  rule_straight_entropy: 0.80
+  rule_straight_deviation: 0.20
+  regularization: 0.01
+  learning_rate: 0.10
+  iterations: 2500
