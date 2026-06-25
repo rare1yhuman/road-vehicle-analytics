@@ -53,7 +53,7 @@ analysis stages, and writes the outputs under `outputs/demo`.
 Launch the dashboard:
 
 ```bash
-streamlit run streamlit_app.py
+.venv/bin/python -m streamlit run streamlit_app.py
 ```
 
 The application will be available at http://localhost:8501 in your browser.
